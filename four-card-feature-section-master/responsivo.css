@@ -1,0 +1,15 @@
+@media screen and (min-width: 768px) {
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+  }
+  .orange ,.red{
+    width: 250px;
+
+  }
+}

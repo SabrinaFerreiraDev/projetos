@@ -1,0 +1,70 @@
+@charset "UTF-8";
+body {
+  text-align: center;
+  font-size: 28px;
+}
+.tech-section h1 {
+  font-size: 28px;
+  color: #2f2f40;
+}
+.tech-section p {
+  max-width: 600px;
+  margin: 10px auto 40px;
+  color: #666;
+  font-size: 14px;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  position: relative;
+  text-align: left;
+}
+.card img {
+  width: 40px;
+  margin-top: 20px;
+  float: right;
+}
+.card h3 {
+  margin-bottom: 10px;
+}
+.card:hover{
+    background-color: rgba(236, 236, 236, 0.082);
+    transform: scale(1.05);
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card::before {
+  content: "";
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.aqua::before {
+  background-color: hsl(180, 62%, 55%);
+}
+.red::before {
+  background-color: hsl(0, 78%, 62%);
+}
+.orange::before {
+  background-color: hsl(34, 97%, 64%);
+}
+.blue::before {
+  background-color: hsl(212, 86%, 64%);
+}
