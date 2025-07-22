@@ -1,0 +1,187 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  background-color: hsl(0, 0%, 81%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* altura total da tela */
+  margin: 0;
+}
+
+.container {
+  background-color: hsl(0, 0%, 81%);
+  width: 90%;
+  height: 90%;
+
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 350px);
+  grid-template-areas:
+    "caixa1 caixa1 caixa2 caixa5"
+    "caixa3 caixa4 caixa4 caixa5";
+  gap: 20px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 15px;
+  width: fit-content;
+}
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info h1 {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.info .verificado {
+  margin: 0;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+.paragrafo {
+  margin-top: 15px;
+  text-align: justify;
+  line-height: 1.2em;
+  font-size: 16px;
+}
+.item {
+  transition: all 0.5s ease-in-out;
+}
+.item:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgb(255, 255, 255);
+}
+
+.caixa1 {
+  background-color: hsl(263, 55%, 52%);
+  color: rgb(255, 254, 254);
+  grid-area: caixa1;
+  border-radius: 10px;
+  padding: 25px;
+  z-index: 1;
+  position: relative;
+  background-image: url(images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top right 50px;
+}
+.caixa2 {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: hsl(217, 19%, 35%);
+  color: hsl(214, 17%, 92%);
+  grid-area: caixa2;
+  border-radius: 10px;
+}
+.caixa3 {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(217, 19%, 35%);
+  grid-area: caixa3;
+  border-radius: 10px;
+}
+.caixa4 {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  background-color: hsl(219, 29%, 14%);
+  color: hsl(0, 0%, 100%);
+  grid-area: caixa4;
+  border-radius: 10px;
+}
+.caixa5 {
+  padding: 20px;
+
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(217, 19%, 35%);
+  grid-area: caixa5;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1339px) {
+  body,
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  .container {
+    width: 90vw;
+
+    grid-template-areas:
+      "caixa1 caixa1 caixa1 caixa1"
+      "caixa1 caixa1 caixa1 caixa1"
+      "caixa2 caixa2 caixa2 caixa2"
+      "caixa3 caixa3 caixa3 caixa3"
+      "caixa4 caixa4 caixa4 caixa4"
+      "caixa5 caixa5 caixa5 caixa5";
+  }
+  .caixa1 h2 {
+    font-size: 1.4em;
+    color: rgb(226, 225, 225);
+  }
+  .caixa1 .paragrafo {
+    color: rgb(226, 225, 225);
+    font-size: 1.4em;
+  }
+
+  .caixa2 {
+    padding-bottom: 50px;
+  }
+  .caixa3 {
+    padding-bottom: 50px;
+  }
+  .caixa4 {
+    padding-bottom: 50px;
+  }
+  .caixa5 {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+  }
+  .caixa5 h2 {
+    font-size: 1.6em;
+  }
+  .caixa5 .paragrafo {
+    font-size: 1.3em;
+  }
+
+  .item {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
