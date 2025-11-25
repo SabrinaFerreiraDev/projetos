@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Feliz Aniversário</title>
-<link rel="shortcut icon" href="../fonts/OIP.webp" type="image/x-icon">
+  <link rel="shortcut icon" href="../fonts/OIP.webp" type="image/x-icon">
   <!-- CSS -->
   <link rel="stylesheet" href="estilo2.css">
-
+  
   <!-- confetti lib (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 </head>
 <body>
-
   <header class="top">
     <h1>Feliz Aniversário 🎉</h1>
     <p class="sub">Toque ou clique em um cartão para ver a mensagem</p>
   </header>
-
+  
   <!-- Balões (atrás) -->
   <div id="balloon-container-behind" aria-hidden="true"></div>
-
+  
   <!-- Controls -->
   <div class="controls">
+    <div class="audio-player">
+      <audio controls id="meuAudio" autoplay class="">
+        <source src="../fonts/happy-birthday-314197.mp3" type="audio/mpeg" >
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
+    </div>
+    
     <button id="openAll" class="btn">Abrir todos</button>
     <button id="closeAll" class="btn">Fechar todos</button>
   </div>
@@ -256,7 +262,7 @@
         </div>
       </div>
     </article>
-
+    
   </main>
   <footer>
   <p>🎉 Feliz aniversário, mãe! 🎉</p>
@@ -271,13 +277,16 @@
   <div class="heart">❤️</div>
   <div class="heart">❤️</div>
   <div class="heart">❤️</div>
-
+  
   <!-- Balões animados -->
 
   <div class="balloon"></div>
   <div class="balloon"></div>
   <div class="balloon"></div>
   <div class="balloon"></div>
+
+  <div class="music">
+  Music by <a href="https://pixabay.com/users/lnplusmusic-47631836/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=314197">Andrii Poradovskyi</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=314197">Pixabay</a></div>
 </footer>
 
 

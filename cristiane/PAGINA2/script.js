@@ -1,5 +1,3 @@
-
-
 /* helper: fire confetti centered on element */
 function fireConfettiAtElement(el) {
   if (typeof confetti !== "function") return;
@@ -163,3 +161,36 @@ function lighten(hex, percent) {
   tag.appendChild(document.createTextNode(css));
   document.head.appendChild(tag);
 })();
+
+const audio = document.getElementById("meuAudio");
+const playPauseBtn = document.getElementById("playPause");
+const progress = document.getElementById("progress");
+
+// Volume inicial
+audio.volume = 0.2;
+  window.addEventListener("load", () => {
+    audio.play().catch(() => {
+      console.log("Autoplay bloqueado pelo navegador");
+    });
+  });
+
+// Atualiza a barra de progresso
+audio.addEventListener("timeupdate", () => {
+  progress.value = (audio.currentTime / audio.duration) * 100;
+});
+
+// Controla o play/pause
+playPauseBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playPauseBtn.textContent = "⏸️";
+  } else {
+    audio.pause();
+    playPauseBtn.textContent = "▶️";
+  }
+});
+
+// Permite avançar ou voltar na música
+progress.addEventListener("input", () => {
+  audio.currentTime = (progress.value / 100) * audio.duration;
+});

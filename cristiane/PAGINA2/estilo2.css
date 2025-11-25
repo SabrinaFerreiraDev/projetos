@@ -241,6 +241,16 @@ animation: floatBalloon 6s infinite;
 .balloon:nth-child(8) { left: 55%; animation-delay: 1s; background-color:#ff6666;}
 .balloon:nth-child(9) { left: 75%; animation-delay: 3s; background-color:#ff4d4d;}
 
+#meuAudio{
+  height: 35px;
+  width: 205px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+} 
+.music{
+  display: none;
+}
 
 
 
