@@ -1,0 +1,258 @@
+:root{
+  --card-w: 300px;
+  --card-h: 400px;
+  --accent: #e91e63;
+  --bg1: #fff5f8;
+  --bg2: #ffeef5;
+  --bg3: #fffaf0;
+}
+
+*{
+  box-sizing:border-box
+}
+html,body{
+  width:100%;height:100%}
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
+  color:#111;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background 6s ease;
+}
+
+/* pulse gradient: gently changes hues for festive feel */
+@keyframes gradientShift {
+  0%{ --bg1:#fd4d7f; --bg2:#fff5f8; --bg3:#fff0f9; }
+  100%{ --bg1:#fff5f8; --bg2:#ffeef5; --bg3:#fff0f9; }
+}
+body { animation: gradientShift 18s infinite; }
+
+.top { text-align:center; padding:22px 12px 0; }
+.top h1 { margin:0; font-size:clamp(20px,3vw,34px); color:var(--accent); }
+.top .sub { margin-top:8px; color:#6b2b46; opacity:0.9 }
+
+/* controls */
+.controls { display:flex; justify-content:center; gap:10px; margin:14px; }
+.btn { background:var(--accent); color:#fff; border:none; padding:8px 12px; border-radius:10px; cursor:pointer; box-shadow:0 8px 20px rgba(233,30,99,0.12) }
+
+/* balloons - behind cards */
+#balloon-container-behind{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* behind */
+  overflow: hidden;
+}
+
+/* balloon visual */
+.balloon{
+  position:absolute;
+  bottom:-200px;
+  border-radius: 50% 50% 45% 45%;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
+  animation: rise linear infinite;
+  transform-origin:center;
+  opacity: 0.94;
+  display:block;
+}
+
+/* balloon string */
+.balloon::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-48px;
+  transform:translateX(-50%);
+  width:2px;
+  height:48px;
+  background:rgba(0,0,0,0.22);
+  border-radius:1px;
+}
+
+/* realistic rise & sway */
+@keyframes rise{
+  0%{ transform: translateX(0) translateY(0) rotate(0deg) scale(0.96); }
+  30%{ transform: translateX(20px) translateY(-40vh) rotate(6deg) scale(1); }
+  60%{ transform: translateX(-30px) translateY(-80vh) rotate(-6deg) scale(1.02); }
+  100%{ transform: translateX(10px) translateY(-135vh) rotate(3deg) scale(1.05); opacity:0; }
+}
+
+/* grid */
+.grid{
+  width:min(1200px,96%);
+  margin: 8px auto 60px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:20px;
+  align-items:start;
+  z-index:2; /* above balloons */
+  position:relative;
+  padding: 20px;
+}
+
+/* card */
+.card{
+  perspective:1400px;
+  position:relative;
+  cursor:pointer;
+  width:100%;
+  max-width:var(--card-w);
+  margin: 0 auto;
+  height: var(--card-h);
+  border-radius:14px;
+  transition: transform .25s ease;
+  outline: none;
+  will-change: transform;
+}
+.card:focus{ box-shadow:0 6px 20px rgba(0,0,0,0.12) }
+
+/* inner flip */
+.card-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition: transform .7s cubic-bezier(.2,.9,.2,1);
+}
+
+/* front & back */
+.card-front, .card-back{
+  position:absolute;
+  inset:0;
+  border-radius:12px;
+  overflow:hidden;
+  backface-visibility:hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* front (imagem) */
+.card-front img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* hint */
+.hint{
+  position:absolute;
+  right:8px;
+  bottom:8px;
+  background:rgba(0,0,0,0.55);
+  color:#fff;
+  font-size:.78rem;
+  padding:6px 9px;
+  border-radius:8px;
+  pointer-events:none;
+  backdrop-filter: blur(3px);
+}
+
+/* back (mensagem) */
+.card-back{
+  background: linear-gradient(180deg,#f5bdbd 0%, #fff 100%);
+  transform: rotateY(180deg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+.back-content{ text-align:center; color:#333; line-height:1.55;}
+.back-content h3{ margin:0 0 8px; color:var(--accent) }
+
+/* flipped state */
+.card.flipped .card-inner{
+  transform: rotateY(180deg);
+}
+
+/* small hover lift */
+.card:hover{ transform: translateY(-6px) }
+
+
+
+
+
+footer {
+position: relative;
+background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+color: #800000;
+text-align: center;
+padding: 40px 20px;
+overflow: hidden;
+}
+
+footer p {
+margin: 10px 0;
+font-size: 18px;
+animation: fadeIn 2s ease forwards;
+opacity: 0;
+}
+
+footer p:nth-child(1) { animation-delay: 0.2s; font-size: 22px; font-weight: bold; }
+footer p:nth-child(2) { animation-delay: 0.6s; }
+footer p:nth-child(3) { animation-delay: 1s; }
+footer p:nth-child(4) { animation-delay: 1.4s; font-size: 16px; color: #b30000; }
+
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+
+/* Corações animados */
+.heart {
+position: absolute;
+font-size: 24px;
+color: #ff4d4d;
+animation: floatHeart 4s infinite;
+}
+
+@keyframes floatHeart {
+0% { transform: translateY(0) scale(1); opacity: 1; }
+50% { transform: translateY(-150px) scale(1.2); opacity: 0.7; }
+100% { transform: translateY(-300px) scale(0.8); opacity: 0; }
+}
+
+/* Gerar vários corações em posições diferentes */
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 70%; animation-delay: 1.5s; }
+.heart:nth-child(5) { left: 85%; animation-delay: 0.5s; }
+
+/* Balões animados */
+.balloon {
+position: absolute;
+bottom: -50px;
+width: 30px;
+height: 40px;
+background-color: #ff9999;
+border-radius: 50% 50% 50% 50%;
+animation: floatBalloon 6s infinite;
+}
+
+@keyframes floatBalloon {
+0% { transform: translateY(0); opacity: 1; }
+50% { transform: translateY(-200px); opacity: 0.8; }
+100% { transform: translateY(-400px); opacity: 0; }
+}
+
+.balloon:nth-child(6) { left: 15%; animation-delay: 0s; background-color:#ff8080;}
+.balloon:nth-child(7) { left: 35%; animation-delay: 2s; background-color:#ff9999;}
+.balloon:nth-child(8) { left: 55%; animation-delay: 1s; background-color:#ff6666;}
+.balloon:nth-child(9) { left: 75%; animation-delay: 3s; background-color:#ff4d4d;}
+
+
+
+
+/* responsive sizes */
+@media (max-width: 1000px){
+  :root{ --card-w: 260px; --card-h: 360px; }
+}
+@media (max-width: 700px){
+  :root{ --card-w: 86vw; --card-h: calc(var(--card-w) * 1.33); }
+  .controls{ flex-wrap:wrap; gap:8px; justify-content:center }
+}
+@media (max-width:420px){
+  :root{ --card-w: 92vw; --card-h: calc(var(--card-w) * 1.33); }
+  .top h1{ font-size:1.1rem }
+}

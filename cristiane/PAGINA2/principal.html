@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feliz Aniversário</title>
+<link rel="shortcut icon" href="../fonts/OIP.webp" type="image/x-icon">
+  <!-- CSS -->
+  <link rel="stylesheet" href="estilo2.css">
+
+  <!-- confetti lib (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
+</head>
+<body>
+
+  <header class="top">
+    <h1>Feliz Aniversário 🎉</h1>
+    <p class="sub">Toque ou clique em um cartão para ver a mensagem</p>
+  </header>
+
+  <!-- Balões (atrás) -->
+  <div id="balloon-container-behind" aria-hidden="true"></div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button id="openAll" class="btn">Abrir todos</button>
+    <button id="closeAll" class="btn">Fechar todos</button>
+  </div>
+
+  <!-- Grid com 15 cards -->
+  <main class="grid" id="grid">
+
+    <!-- Card 1 - demonstração usando a imagem que você carregou aqui -->
+    <article class="card" data-index="1" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20201023-WA0009.jpg" alt="Foto 1">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Você ilumina tudo</h3>
+            <p>Obrigada por ser meu porto seguro. Te amo!</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Cards 2..15: substitua src por cards/cardX.jpg conforme sua pasta -->
+    <article class="card" data-index="2" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20201023-WA0020.jpg" alt="Foto 2">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Gratidão</h3>
+            <p>Seu abraço é meu maior conforto.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="3" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20201023-WA0054.jpg" alt="Foto 3">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Memórias</h3>
+            <p>Cada momento contigo é um tesouro.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="4" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20201023-WA0056.jpg" alt="Foto 4">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Te celebro</h3>
+            <p>Que seu dia seja repleto de alegria e carinho.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="5" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20201123-WA0007.jpg" alt="Foto 5">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Força</h3>
+            <p>Seu exemplo me guia todos os dias.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="6" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20201123-WA0009.jpg" alt="Foto 6">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Meu porto</h3>
+            <p>Você é minha paz e meu lar.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="7" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20250209-WA0028.jpg" alt="Foto 7">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Doçura</h3>
+            <p>Seu sorriso colore meus dias.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="8" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20250209-WA0032.jpg" alt="Foto 8">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Orgulho</h3>
+            <p>Tenho orgulho de você, sempre.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="9" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20250311-WA0038.jpg" alt="Foto 9">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Gratidão</h3>
+            <p>Obrigado por cada conselho.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="10" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20250311-WA0048.jpg" alt="Foto 10">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Saudades</h3>
+            <p>A distância nunca diminui o amor.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="11" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20250311-WA0054.jpg" alt="Foto 11">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Bênção</h3>
+            <p>Ser seu filho(a) é um presente.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="12" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20250311-WA0056.jpg" alt="Foto 12">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Leveza</h3>
+            <p>Você transforma tudo em alegria.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="13" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG-20250311-WA0064.jpg" alt="Foto 13">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Aconchego</h3>
+            <p>Seu abraço é o meu remédio.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="14" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/IMG_20250126_145656_721.webp" alt="Foto 14">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Sorriso</h3>
+            <p>Seu sorriso guia meus melhores dias.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" data-index="15" tabindex="0">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="../imagens/Captura de tela.jpeg" alt="Foto 15">
+          <span class="hint">toque para abrir</span>
+        </div>
+        <div class="card-back">
+          <div class="back-content">
+            <h3>Minha luz</h3>
+            <p>Você é a luz que me guia. Feliz dia!</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </main>
+  <footer>
+  <p>🎉 Feliz aniversário, mãe! 🎉</p>
+  <p>Que seu dia seja cheio de alegria, amor e sorrisos.</p>
+  <p>Sou muito feliz por ter você na minha vida. Parabéns por mais um ano incrível!</p>
+  <p>Com todo meu amor, <br> sua filha Sabrina 💖</p>
+
+  <!-- Corações animados -->
+
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+  <div class="heart">❤️</div>
+
+  <!-- Balões animados -->
+
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+</footer>
+
+
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
+</body>
+</html>
